@@ -112,7 +112,33 @@ You can consolidate the creation and checkout of a new branch by using the -b fl
 
 Rename your branch name:
 
-  $ git branch -m current-branch-name new-branch-name
+  1. Rename the Branch Locally
+
+    If you are currently on the branch you want to rename:
+
+    $ git branch -m new-branch-name
+
+    If you are on a different branch:
+
+    $ git branch -m old-branch-name new-branch-name
+
+  2. Push the New Branch to GitHub
+
+    After renaming it locally, push the updated branch to GitHub:
+
+    $ git push origin -u new-branch-name
+
+  3. Delete the Old Branch from Remote
+
+    Remove the old branch from GitHub:
+
+    $ git push origin --delete old-branch-name
+
+  4. Update Local Tracking (Optional)
+
+    If your repository has other contributors or automation tools tracking the old branch, inform them to update their local copies:
+
+    $ git fetch --prune
 
 Merge the specified branch’s history into the one you’re currently working in:
 
